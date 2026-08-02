@@ -27,3 +27,23 @@ document.querySelectorAll(".section, .card").forEach(el => {
     el.classList.add("fade");
     observer.observe(el);
 });
+
+function copyEmailAndOpen() {
+	const email = "yourbusiness@email.com";
+
+	navigator.clipboard.writeText(email)
+		.then(() => {
+			alert("Our email address has been copied to your clipboard!");
+
+			window.location.href =
+				"mailto:" + email +
+				"?subject=Cleaning Service Quote Request";
+		})
+		.catch(() => {
+			alert("Email copied failed, but opening email app.");
+
+			window.location.href =
+				"mailto:" + email +
+				"?subject=Cleaning Service Quote Request";
+		});
+}
